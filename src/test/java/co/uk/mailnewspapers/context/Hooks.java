@@ -6,8 +6,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.nio.file.Paths;
-
 public class Hooks {
 
     @Autowired
@@ -16,12 +14,12 @@ public class Hooks {
 
     @Before
     public void init(){
-            TestContext.getBrowserInstance();
-            TestContext.getBrowserContextInstance().tracing().start(new Tracing.StartOptions()
-                .setScreenshots(true)
-                .setSnapshots(true));
-        TestContext.getPageInstance().navigate("https://www.mailplus.co.uk/");
-        TestContext.getPageInstance().locator("a.header-menu-item p:has-text('Today')").click();
+        Playwright playwright = Playwright.create();
+        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        Page page = browser.newPage();
+        page.navigate("https://www.mailplus.co.uk/");
+        page.locator("//button[text()='Accept All Cookies']").click();
+        page.locator("//p[text()='Best Of']").click();
     }
 
     @After
