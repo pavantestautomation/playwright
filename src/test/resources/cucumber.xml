@@ -7,4 +7,6 @@
     <context:property-placeholder location="classpath:config.properties"/>
     <context:annotation-config/>
     <bean name="Environment" class="co.uk.mailnewspapers.context.Environment"/>
+    <bean name="TestContext" class="co.uk.mailnewspapers.context.TestContext"/>
+    <bean name="BrowserFactory" class="co.uk.mailnewspapers.core.ui.BrowserFactory"/>
 </beans>

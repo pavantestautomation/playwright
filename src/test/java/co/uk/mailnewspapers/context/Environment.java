@@ -1,11 +1,11 @@
 package co.uk.mailnewspapers.context;
 
-import lombok.Getter;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-@Getter
+@Data
 @Configuration
 @PropertySource(value = "classpath:config.properties")
 public class Environment {
