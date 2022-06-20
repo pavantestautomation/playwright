@@ -111,11 +111,11 @@
             <properties>
               <property>
                 <name>dataproviderthreadcount</name>
-                <value>10</value>
+                <value>2</value>
               </property>
             </properties>
             <includes>
-              <include>**/Runner.class</include>
+              <include>**/TestRunner.class</include>
             </includes>
           </configuration>
         </plugin>

@@ -1,15 +1,23 @@
 package co.uk.mailnewspapers.steps;
 
+import co.uk.mailnewspapers.context.TestContext;
+import co.uk.mailnewspapers.pages.HomePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Header {
 
+    @Autowired
+    TestContext testContext;
+
+
     @Given("the Home page")
     public void the_home_page() {
-
+         testContext.getHomePage().dailyMailLogo();
+         testContext.getHomePage().acceptCookie();
     }
 
     @Given("user should see Today page by default")
